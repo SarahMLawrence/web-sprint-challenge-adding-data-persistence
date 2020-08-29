@@ -4,7 +4,7 @@ exports.up = async function (knex) {
     table.increments("id");
     table.text("name", 128).notNull().unique();
     table.text("description", 528).notNull();
-    table.boolean("completed").notNull().defaultTo(false);
+    table.boolean("completed").defaultTo(false);
   });
 
   // create the task table
@@ -12,7 +12,7 @@ exports.up = async function (knex) {
     table.increments("id");
     table.text("description", 528).notNull();
     table.text("notes", 528).notNull();
-    table.boolean("completed").notNull().defaultTo(false);
+    table.boolean("completed").defaultTo(false);
     table
       .integer("project_id")
       .unsigned()
